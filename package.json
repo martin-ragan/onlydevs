@@ -1,0 +1,7 @@
+{
+  "name": "onlydevs",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
