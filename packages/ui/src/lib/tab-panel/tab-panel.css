@@ -1,0 +1,15 @@
+.tab-panel {
+    @apply tabs tabs-bordered w-full border-b border-border-gray;
+}
+
+.tab-panel > div > .tab-panel__tab {
+    @apply tab text-neutral text-base py-4 px-6 h-auto;
+}
+
+.tab-panel > div > input.tab-panel__tab:checked {
+    @apply text-white border-b-2 border-white;
+}
+
+.tab-panel__tab-content {
+    @apply tab-content;
+}

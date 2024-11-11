@@ -1,0 +1,28 @@
+.sidebar {
+    @apply bg-secondary-content flex flex-col items-center justify-between border-r border-primary;
+}
+
+.sidebar__list {
+    @apply flex flex-col items-center justify-start list-none;
+}
+
+.sidebar__list > li {
+    @apply p-6 border-l-4 border-transparent;
+}
+
+.sidebar__list > li > a > svg > path {
+    @apply stroke-neutral;
+}
+
+.sidebar__list > li.active {
+    @apply text-white border-white;
+}
+
+.sidebar__list > li.active > a > svg > path {
+    @apply stroke-white;
+}
+
+
+.sidebar__list > li > img {
+    @apply max-w-6 max-h-6;
+}

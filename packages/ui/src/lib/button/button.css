@@ -1,0 +1,7 @@
+.button {
+    @apply border-none text-xs rounded-lg py-2 px-3 font-medium flex items-center justify-center gap-2;
+}
+
+.button--primary {
+    @apply bg-primary text-primary-content;
+}

@@ -1,0 +1,41 @@
+title: Úvod do webového vývoje
+faculty: Faculty of Informatics
+cover: "/assets/course/pb138/course-cover.webp"
+isDraft: False
+description: |
+  Za jeden semestr webovým vývojářem? Ano, v tomto předmětu se naučíte vše co v takovémto odvětví budete
+  potřebovat. Nejen, že si projdeme v rámci frontendu vše od HTML a CSS až po pokročilé věci v Reactu, ale také
+  se seznámíte s technologiemi na straně serveru, ukážeme si práci s databází a na konci toto vše budete 
+  zvládat propojovat do jedné aplikace a nasazovat na servery. Tak pojďme na to!
+sections:
+  - title: Úvod
+    lectures:
+      - pb138/platform-introduction
+  - title: Routing
+    lectures:
+      - pb138/client-side-routing-introduction
+      - pb138/client-side-routing-libraries
+      - pb138/url-structure
+      - pb138/setup-react-router
+      - pb138/first-app-routes
+      - pb138/react-router-nested-routes
+      - pb138/simple-react-routing-demo
+      - pb138/dynamic-routes
+      - pb138/implement-browser-router
+      - pb138/react-router-links
+      - pb138/implement-react-router-navbar
+      - pb138/code-splitting
+      - pb138/routing-checkpoint
+  - title: Formuláře
+    lectures:
+      - pb138/forms-introduction
+      - pb138/controlled-and-uncontrolled-inputs
+      - pb138/react-hook-form-lib
+      - pb138/form-hook-implementation
+      - pb138/form-validation
+      - pb138/form-error-messages
+      - pb138/form-validation-implementation
+      - pb138/react-form-controller
+      - pb138/form-field-array
+      - pb138/form-accessibility
+      - pb138/forms-checkpoint

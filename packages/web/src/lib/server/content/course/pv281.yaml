@@ -1,0 +1,22 @@
+title: Programming in Rust
+faculty: Faculty of Informatics
+cover: "/assets/course/pv281/course-cover.webp"
+isDraft: True
+description: |
+  Welcome to "Programming in Rust," an immersive and comprehensive course designed to equip you with the knowledge and skills needed to become a proficient Rust programmer. Rust is a powerful systems programming language known for its safety, performance, and concurrency capabilities. Whether you're a seasoned developer looking to expand your skillset or a beginner eager to delve into the world of systems programming, this course is your gateway to mastering Rust.
+sections:
+  - title: Introduction
+    lectures:
+      - pv281/cargo
+  - title: Basics
+    lectures:
+      - pv281/simple-rust-code
+      - pv281/data-types
+  - title: Enums and structures
+    lectures:
+      - pv281/enums
+      - pv281/pattern-matching
+  - title: Data structures
+    lectures:
+      - pv281/file-system
+      - pv281/standard-io

@@ -1,0 +1,48 @@
+.card__container {
+  @apply card card-side w-full flex-row rounded border border-primary max-h-96;
+}
+
+.card__container > figure {
+  @apply rounded-none rounded-bl rounded-tl;
+}
+
+
+.card__container > figure > img {
+  @apply w-96 h-full;
+}
+
+.card__container > .card__body {
+  @apply card-body flex-1 items-start;
+}
+
+.card__body > .card__title {
+  @apply card-title text-white text-base;
+}
+
+.card__body > .card__description {
+  @apply text-stone-300 text-sm mb-4 max-h-16 overflow-hidden;
+}
+
+.card__body > .card__actions {
+  @apply card-actions justify-end mb-8
+}
+
+.card__body > .card__actions > .card__badge {
+  @apply badge badge-primary;
+}
+
+.card__body > .card__price {
+  @apply font-bold text-white text-xl;
+}
+
+.card__container.card--smaller {
+  @apply flex-col;
+}
+
+.card__container.card--smaller > figure > img {
+  @apply w-full h-64 rounded-none;
+}
+
+.card__container.card--smaller > figure {
+    @apply rounded-none rounded-tl rounded-tr;
+}
