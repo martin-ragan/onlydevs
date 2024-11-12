@@ -1,31 +1,49 @@
-import { hash, verify } from '@node-rs/argon2';
-import { encodeBase32LowerCase } from '@oslojs/encoding';
+import { verify } from '@node-rs/argon2';
 import { fail, redirect } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 import * as auth from '$lib/server/auth';
 import { db } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
 import type { Actions, PageServerLoad } from './$types';
+import { z } from 'zod';
+
+// Add Zod schemas
+const loginSchema = z.object({
+	username: z.string().min(3).max(20),
+	password: z.string().min(8).max(100)
+});
 
 export const load: PageServerLoad = async (event) => {
 	if (event.locals.user) {
-		return redirect(302, '/demo/lucia');
+		return redirect(302, '/dashboard');
 	}
 	return {};
 };
 
 export const actions: Actions = {
-	login: async (event) => {
+	default: async (event) => {
+		const redirectTo = event.url.searchParams.get('redirectTo');
 		const formData = await event.request.formData();
 		const username = formData.get('username');
 		const password = formData.get('password');
 
-		if (!validateUsername(username)) {
-			return fail(400, { message: 'Invalid username' });
-		}
-		if (!validatePassword(password)) {
-			return fail(400, { message: 'Invalid password' });
-		}
+		// Replace individual validations with Zod validation
+		const result = loginSchema.safeParse({ username, password });
+		if (!result.success) {
+            const fieldErrors = result.error.flatten().fieldErrors;
+            const singleErrors: Record<string, string> = {};
+            
+            // Take only the first error message for each field
+            for (const [field, errors] of Object.entries(fieldErrors)) {
+                if (errors && errors.length > 0) {
+                    singleErrors[field] = errors[0];
+                }
+            }
+            
+            return fail(400, {
+                errors: singleErrors
+            });
+        }
 
 		const results = await db.select().from(table.user).where(eq(table.user.username, username));
 
@@ -47,59 +65,12 @@ export const actions: Actions = {
 		const sessionToken = auth.generateSessionToken();
 		const session = await auth.createSession(sessionToken, existingUser.id);
 		auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
+		
+		console.log(redirectTo);
+		if (redirectTo) {
+			return redirect(302, redirectTo);
+		}
 
-		return redirect(302, '/demo/lucia');
+		return redirect(302, '/dashboard');
 	},
-	register: async (event) => {
-		const formData = await event.request.formData();
-		const username = formData.get('username');
-		const password = formData.get('password');
-
-		if (!validateUsername(username)) {
-			return fail(400, { message: 'Invalid username' });
-		}
-		if (!validatePassword(password)) {
-			return fail(400, { message: 'Invalid password' });
-		}
-
-		const userId = generateUserId();
-		const passwordHash = await hash(password, {
-			// recommended minimum parameters
-			memoryCost: 19456,
-			timeCost: 2,
-			outputLen: 32,
-			parallelism: 1
-		});
-
-		try {
-			await db.insert(table.user).values({ id: userId, username, passwordHash });
-
-			const sessionToken = auth.generateSessionToken();
-			const session = await auth.createSession(sessionToken, userId);
-			auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
-		} catch (e) {
-			return fail(500, { message: 'An error has occurred' });
-		}
-		return redirect(302, '/demo/lucia');
-	}
 };
-
-function generateUserId() {
-	// ID with 120 bits of entropy, or about the same as UUID v4.
-	const bytes = crypto.getRandomValues(new Uint8Array(15));
-	const id = encodeBase32LowerCase(bytes);
-	return id;
-}
-
-function validateUsername(username: unknown): username is string {
-	return (
-		typeof username === 'string' &&
-		username.length >= 3 &&
-		username.length <= 31 &&
-		/^[a-z0-9_-]+$/.test(username)
-	);
-}
-
-function validatePassword(password: unknown): password is string {
-	return typeof password === 'string' && password.length >= 6 && password.length <= 255;
-}

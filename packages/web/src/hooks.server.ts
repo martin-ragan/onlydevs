@@ -3,9 +3,16 @@ import * as auth from './lib/server/auth';
 
 const handleAuth: Handle = async ({ event, resolve }) => {
 	const sessionToken = event.cookies.get(auth.sessionCookieName);
+
 	if (!sessionToken) {
-		event.locals.user = null;
-		event.locals.session = null;
+		event = {
+			...event,
+			locals: {
+				...event.locals,
+				user: null,
+				session: null
+			}
+		};
 		return resolve(event);
 	}
 

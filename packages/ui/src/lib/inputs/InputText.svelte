@@ -1,26 +1,50 @@
 <script lang="ts">
     type Props = {
-        value: string,
+        value?: string,
         placeholder?: string,
-        label?: string
+        label?: string,
+        class?: string,
+        id?: string,
+        name?: string,
+        error?: string,
+        type?: 'text' | 'email' | 'password'
     };
 
-    let { value = $bindable(''), placeholder, label }: Props = $props();
+    let { 
+        value = $bindable(''), 
+        placeholder, 
+        label, 
+        class: className,
+        id = '', 
+        name = '',
+        error = '',
+        type = 'text'
+    }: Props = $props();
     
-    // Generate unique ID for input-label association
-    const id = `input-${Math.random().toString(36).slice(2)}`;
+    let inputId = $derived(id || name || 'input');
 </script>
 
-{#if label}
-    <label for={id} class="input-label block mb-2 text-sm font-light text-white">{label}</label>
-{/if}
-<input 
-    {id}
-    class="input w-full px-4 py-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" 
-    type="text" 
-    bind:value={value}
-    placeholder={placeholder}
-    aria-label={label || placeholder || 'Text input'}
-/>
+<div class={className}>
+    {#if label}
+        <label for={inputId} class="block text-sm font-light text-white">{label}</label>
+    {/if}
+    <input 
+        id={inputId}
+        {name}
+        class="mt-1 block w-full px-3 py-2 bg-transparent border rounded-md shadow-sm text-gray-100 placeholder-gray-400 focus:outline-none
+            {error 
+                ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+                : 'border-primary focus:ring-primary-green focus:border-primary-green'}"
+        type={type}
+        bind:value={value}
+        placeholder={placeholder}
+        aria-label={label || placeholder || 'Text input'}
+        aria-invalid={!!error}
+    />
+    {#if error}
+        <p class="mt-1 text-sm text-red-500">{error}</p>
+    {/if}
+</div>
+
 
 

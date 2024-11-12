@@ -41,3 +41,10 @@ export const WithLabel: Story = {
         label: 'Enter your text here'
     }
 };
+
+export const WithError: Story = {
+    args: {
+        value: '',
+        error: 'This is an error'
+    }
+};

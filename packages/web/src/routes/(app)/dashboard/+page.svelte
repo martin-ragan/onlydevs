@@ -10,6 +10,7 @@
     let { data } = $props();
 
     const coursesInProgress = data.coursesInProgress;
+    const user = data.user;
     
 
     let days: Day[] = [
@@ -28,7 +29,7 @@
 </script>
 <section class="p-6">
     <div class="hero bg-[#252525] py-7 px-8 h-72 flex items-start">
-        <h1 class="text-5xl font-bold text-white text-left w-full">Welcome back</h1>
+        <h1 class="text-5xl font-bold text-white text-left w-full">Welcome back, {user.firstName}!</h1>
     </div>
 
     <div class="flex gap-4 mt-8 items-stretch h-full w-full justify-center">

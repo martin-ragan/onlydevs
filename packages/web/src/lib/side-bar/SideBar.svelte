@@ -2,9 +2,6 @@
   import './side-bar.css';
   import Icon from '$lib/icon/Icon.svelte';
   import { page } from '$app/stores';
-
-  
-    
 </script>
 
 <aside class="sidebar">
@@ -20,12 +17,4 @@
             </a>
         </li>
     </ul>
-
-    <ul class="sidebar__list">
-        <li class="sidebar__list-link">
-            <Icon name="settings" size="18px" />
-        </li>
-        <li class="sidebar__list-link">
-            <Icon name="log-out" size="18px" />
-        </li>
 </aside>

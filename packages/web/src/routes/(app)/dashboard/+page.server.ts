@@ -1,7 +1,8 @@
-export const load = () => {
-    // This would typically fetch from an API/database
-    // Mocked data for now
+import type { PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async ({ locals }) => {
     return {
+        user: locals.user,
         coursesInProgress: [
             {
                 id: 1,

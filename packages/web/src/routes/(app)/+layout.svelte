@@ -5,7 +5,7 @@
 	let { children } = $props();
 </script>
 
-<div class="flex items-stretch h-full bg-secondary">
+<div class="flex items-stretch bg-secondary">
     <SideBar />
     <div class="overflow-y-auto flex-1">
     	{@render children()}

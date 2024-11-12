@@ -1,5 +1,5 @@
-<script>
-import {Button} from "@onlydevs/ui";
+<script lang="ts">
+	let { data } = $props();
 </script>
 
 <section class="bg-secondary-content h-screen">
@@ -9,9 +9,15 @@ import {Button} from "@onlydevs/ui";
                 <h1 class="mb-5 text-7xl py-2 font-bold bg-gradient-to-r from-gray-200 to-green-500 inline-block text-transparent bg-clip-text">Vitajte na OnlyDevs</h1>
                 <p class="mt-6 text-lg text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">Vaše cesta k dokonalosti online vzdělávání.</p>
                 <div class="mt-12 text-center">
-                    <a href="/login" class="btn bg-primary-green text-white border-0">
-                        Přihlásit se do aplikace
-                    </a>
+                    {#if !data.user}
+                        <a href="/login" class="btn bg-primary-green text-white border-0">
+                            Přihlásit se do aplikace
+                        </a>
+                    {:else}
+                        <a href="/dashboard" class="btn bg-primary-green text-white border-0">
+                            Přejít na kurzy
+                        </a>
+                    {/if}
                 </div>
             </div>
         </div>

@@ -37,8 +37,6 @@ export async function load({ params }) {
             } as Lecture;
         });
 
-        console.log(courseLectures.filter(lecture => lecture.type === 'checkpoint').map(lecture => lecture.questions));
-
         return {
             course,
             lectures: courseLectures

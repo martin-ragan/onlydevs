@@ -11,7 +11,7 @@
     
     let { data } = $props();
 
-    let activeTab = $state('overview');
+    let activeTab = $state('course');
     
 
     let items = $derived(data.lectures.map((lecture) => {
@@ -24,22 +24,10 @@
 
     
     const tabs = [
-        { 
-            id: 'overview', 
-            label: 'Overview',
-        },
         {
             id: 'course',
             label: 'Course',
         },
-        {
-            id: 'assignments',
-            label: 'Assignments',
-        },
-        {
-            id: 'chat',
-            label: 'Classroom chat',
-        }
     ]
 
     function setActiveTabIdFn(id: string) {
@@ -70,7 +58,6 @@
     const marked = new Marked(
         markedHighlight({
             highlight(code, lang) {
-                console.log(code, lang);
                 const language = hljs.getLanguage('typescript') ? 'typescript' : 'plaintext';
                 return hljs.highlightAuto(code, ['typescript', 'css']).value;
             }
