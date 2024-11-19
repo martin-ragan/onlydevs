@@ -4,7 +4,6 @@
 
     let { data } = $props();
     const courses  = data.courses;
-    console.log(courses);
     const tabs = data.tabs;
 
     let activeTabId = $state('browse');

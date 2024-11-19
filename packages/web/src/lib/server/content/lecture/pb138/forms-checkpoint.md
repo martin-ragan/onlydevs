@@ -5,7 +5,7 @@ description: |
   Zkuste si v tomto kvízu, zda jste správně pochopili vše co si máte z této kapitoly odnést. Zde máte
   připravené klíčové otázky, z lekcí, které jste si prošli a můžete si prověřit, zda máte osvojené
   právě důležité pojmy.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 7 min
   - checkpoint

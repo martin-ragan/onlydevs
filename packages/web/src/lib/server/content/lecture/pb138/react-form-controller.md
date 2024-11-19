@@ -3,7 +3,7 @@ type: text
 title: Použití komponenty Controller
 description: Tato komponenta má velké využití. Asi nejvíce se nám hodí u komplikovanějších inputů, jako
   jsou nějaké výběry datumů a podobně.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 4 min
   - text

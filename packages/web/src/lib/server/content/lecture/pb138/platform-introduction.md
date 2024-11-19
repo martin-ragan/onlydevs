@@ -2,7 +2,7 @@
 type: text
 title: Úvod a tato vzdělávací platforma
 description: Trocha úvodu, jak tuto platformu používat a co vše nabízí.
-cover: "@/assets/images/introduction.webp"
+cover: "/assets/images/introduction.webp"
 badges:
   - 2 min
   - text

@@ -3,7 +3,7 @@ type: text
 title: React router search params
 description: Poslední část z routingu je možná trochu více pokročilá, ale i tak by ji měl ovládat každý. Jedná
   se o použití Search parametrů.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 4 min
   - text

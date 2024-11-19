@@ -2,7 +2,7 @@
 type: code
 title: Implementování první komponenty
 description: Co to je komponenta v Reactu, jak ji napsat a jak skládat komponenty dohromady
-cover: "@/assets/course/pv281/course-cover.webp"
+cover: "/assets/course/pv281/course-cover.webp"
 badges:
   - 10 min
   - Beginner

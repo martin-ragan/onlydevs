@@ -3,7 +3,7 @@ type: text
 title: Validace formuláře
 description: Uživatel může nyní odesílat data, ale jak správně řešit nevalidní údaje do formuláře? Jde
   toto detekovat ještě než formulář odešleme?
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 3 min
   - text

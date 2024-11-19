@@ -3,7 +3,7 @@ type: text
 title: Zanořené cesty v React Routeru
 description: Asi si umíme představit, že přístup co jsme se naučili v předchozí kapitole je super jednoduchý,
   ale nechce se nám pořád načítat celá stránka. Zkusíme si tedy nějakou práci se zanořenými cestami.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 7 min
   - text

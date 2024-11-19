@@ -3,7 +3,7 @@ type: code
 title: Implementace navigace
 description: Pokud již umíte nastavit routing tak poslední částí, co v poslední řadě už zbývá jen drobnost. Použití
   Navlinku, pro implementaci plnohodnoté navigace.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 10 min
   - coding

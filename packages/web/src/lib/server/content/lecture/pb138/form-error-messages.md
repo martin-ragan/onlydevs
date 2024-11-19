@@ -3,7 +3,7 @@ type: text
 title: Chybové zprávy při validaci
 description: Jak dostat k uživateli nějakou přívětivou metodou chybové zprávy z validačních knihoven, například
   z již použité knihovny Zod.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 3 min
   - text

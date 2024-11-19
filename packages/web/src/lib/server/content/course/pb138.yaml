@@ -11,6 +11,7 @@ sections:
   - title: Úvod
     lectures:
       - pb138/platform-introduction
+      - pb138/course-motivation
   - title: Routing
     lectures:
       - pb138/client-side-routing-introduction
@@ -18,7 +19,9 @@ sections:
       - pb138/url-structure
       - pb138/setup-react-router
       - pb138/first-app-routes
+      - pb138/first-react-component
       - pb138/react-router-nested-routes
+      - pb138/react-search-params
       - pb138/simple-react-routing-demo
       - pb138/dynamic-routes
       - pb138/implement-browser-router
@@ -26,6 +29,7 @@ sections:
       - pb138/implement-react-router-navbar
       - pb138/code-splitting
       - pb138/routing-checkpoint
+      - pb138/spa-introduction
   - title: Formuláře
     lectures:
       - pb138/forms-introduction

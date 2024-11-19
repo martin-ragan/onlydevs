@@ -5,23 +5,23 @@
 .markdown-area h4,
 .markdown-area h5,
 .markdown-area h6 {
-    @apply text-white font-semibold mb-2;
+    @apply text-white font-semibold mb-4 mt-8;
 }
 
 .markdown-area h1 {
-    @apply text-4xl border-b border-border-gray pb-2;
+    @apply text-3xl border-b border-border-gray pb-4 leading-tight;
 }
 
 .markdown-area h2 {
-    @apply text-3xl;
+    @apply text-2xl leading-snug;
 }
 
 .markdown-area h3 {
-    @apply text-2xl;
+    @apply text-xl leading-snug;
 }
 
 .markdown-area p {
-    @apply mb-5 leading-relaxed;
+    @apply mb-6 leading-7 text-gray-200 text-lg;
 }
 
 .markdown-area a {
@@ -30,11 +30,25 @@
 
 .markdown-area ul,
 .markdown-area ol {
-    @apply my-4 pl-8;
+    @apply my-6 pl-8 space-y-3;
 }
 
 .markdown-area li {
-    @apply my-2;
+    @apply text-gray-200 text-lg leading-7;
+}
+
+.markdown-area ul > li {
+    @apply relative pl-6;
+    list-style-type: none;
+}
+
+.markdown-area ul > li::before {
+    @apply absolute left-0 top-[0.6em] h-2 w-2 bg-blue-400 rounded-full;
+    content: "";
+}
+
+.markdown-area ol {
+    @apply list-decimal;
 }
 
 .markdown-area code {

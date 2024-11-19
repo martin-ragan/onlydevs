@@ -3,7 +3,7 @@ type: text
 title: Knihovna React Hook Form
 description: No a teď už ta slavná knihovna, která nás spasí při vytváření složitých formulářů... nebo minimálně nám
   s tím trochu pomůže.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 4 min
   - text

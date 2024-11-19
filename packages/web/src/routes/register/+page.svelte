@@ -11,8 +11,6 @@
         <h2 class="text-center text-white text-3xl font-bold">Create an account</h2>
         
         <form method="POST" action="?/register" use:enhance={(...args) => {
-
-            console.log("args", args);
             submitting = true;
             return async ({ result, update }) => {
                 submitting = false;

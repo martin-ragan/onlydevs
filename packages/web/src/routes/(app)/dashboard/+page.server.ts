@@ -1,38 +1,30 @@
+import type { Course } from '../../../models/types';
+import { getTotalLecturesInStatuses } from '../../../services/lectureServices';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals, parent }) => {
+    const { courses }: { courses: Course[] } = await parent();
+    
+
+    const totalLecturesInStatuses = await getTotalLecturesInStatuses(locals.user.email);
+
+    const coursesInProgress = courses.filter((course) => {
+        const totalLectures = course.sections.reduce((acc, section) => acc + section.lectures.length, 0);
+
+        return totalLecturesInStatuses[course.slug].inProgress > 0
+            || (totalLecturesInStatuses[course.slug].completed > 0
+                && totalLectures > totalLecturesInStatuses[course.slug].completed);
+    }).map((course) => {
+        const totalLectures = course.sections.reduce((acc, section) => acc + section.lectures.length, 0);
+
+        return {
+            ...course,
+            progress: Math.round((totalLecturesInStatuses[course.slug].completed / totalLectures) * 100)
+        }
+    });
+
     return {
         user: locals.user,
-        coursesInProgress: [
-            {
-                id: 1,
-                title: "Introduction to JavaScript",
-                progress: 45,
-                cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
-                lastAccessed: "2024-01-15"
-            },
-            {
-                id: 2, 
-                title: "Advanced React Patterns",
-                progress: 23,
-                cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
-                lastAccessed: "2024-01-14"
-            },
-            {
-                id: 3,
-                title: "Building with Svelte",
-                progress: 78,
-                cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/1200px-Svelte_Logo.svg.png",
-                lastAccessed: "2024-01-13"
-            }
-            ,
-            {
-                id: 4,
-                title: "TypeScript Fundamentals",
-                progress: 34,
-                cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png",
-                lastAccessed: "2024-01-12"
-            }
-        ]
+        coursesInProgress,
     };
 };

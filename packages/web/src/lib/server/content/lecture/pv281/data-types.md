@@ -1,7 +1,7 @@
 ---
 type: text
 title: Datové typy
-cover: "@/assets/course/pb138/course-cover.webp"
+cover: "/assets/course/pb138/course-cover.webp"
 description: V této kapitole se naučíte o základních datových typech v Rustu a jejich použití. Budeme se věnovat číslům, řetězcům a dalším důležitým datovým typům.
 badges:
   - 10 min

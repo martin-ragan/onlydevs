@@ -3,7 +3,7 @@ type: text
 title: Odkazy v React router
 description: S klasickým `<a>` byste se moc daleko v React routeru nedostali. Na odkazování v aplikaci má React
   router vlastní komponenty, které přímo komunikují s jeho interním stavem.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 3 min
   - text

@@ -3,7 +3,7 @@ type: text
 title: Knihovny pro SPA směrování
 description: Jak už to v Reactu bývá, i zde je mnoho možných řešení routingu na straně klienta, proto
   si rozebereme některé knihovny se kterými se můžete setkat a řekneme si o těch, co stojí za použití.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 5 min
   - text

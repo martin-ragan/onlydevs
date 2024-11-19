@@ -3,7 +3,7 @@ type: text
 title: Příprava a instalace React routeru
 description: Zkusíme si stáhnout a nasetupovat nejstahovanšjší knihovnu na směrování, abychom od dalších
   lekcí ji mohli začít konečně používat v plném rozsahu.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 2 min
   - text

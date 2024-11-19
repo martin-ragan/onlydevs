@@ -1,0 +1,151 @@
+/* Markdown content styling using Tailwind-like classes */
+.markdown-area h1,
+.markdown-area h2,
+.markdown-area h3,
+.markdown-area h4,
+.markdown-area h5,
+.markdown-area h6 {
+    @apply text-white font-semibold mb-4 mt-8;
+}
+
+.markdown-area h1 {
+    @apply text-3xl border-b border-border-gray pb-4 leading-tight;
+}
+
+.markdown-area h2 {
+    @apply text-2xl leading-snug;
+}
+
+.markdown-area h3 {
+    @apply text-xl leading-snug;
+}
+
+.markdown-area p {
+    @apply mb-6 leading-7 text-gray-200 text-lg;
+}
+
+.markdown-area a {
+    @apply text-blue-400 hover:underline;
+}
+
+.markdown-area ul,
+.markdown-area ol {
+    @apply my-6 pl-8 space-y-3;
+}
+
+.markdown-area li {
+    @apply text-gray-200 text-lg leading-7;
+}
+
+.markdown-area ul > li {
+    @apply relative pl-6;
+    list-style-type: none;
+}
+
+.markdown-area ul > li::before {
+    @apply absolute left-0 top-[0.6em] h-2 w-2 bg-blue-400 rounded-full;
+    content: "";
+}
+
+.markdown-area ol {
+    @apply list-decimal;
+}
+
+.markdown-area code {
+    @apply bg-[#1e1e1e] px-2 py-1 rounded-md font-mono text-[#d4d4d4]
+    border border-[#2d2d2d] text-sm;
+}
+
+.markdown-area pre {
+    @apply bg-[#1B1B1B] p-4 rounded-lg overflow-x-auto my-4
+    border border-[#2D2D2D];
+}
+
+.markdown-area pre code {
+    @apply border-none px-0 py-0 bg-transparent text-[#ABB2BF]
+    hover:shadow-none hover:border-none;
+}
+
+.markdown-area blockquote {
+    @apply border-l-4 border-gray-600 my-4 pl-4 text-gray-400;
+}
+
+.markdown-area hr {
+    @apply border-0 border-t border-border-gray my-8;
+}
+
+/* Highlight.js syntax highlighting */
+.hljs-keyword,
+.hljs-operator {
+    @apply text-[#C678DD] !important; /* const, =>, etc */
+}
+
+.hljs-punctuation,
+.hljs-bracket,
+.hljs-operator {
+    @apply text-[#ABB2BF] !important; /* : () {} */
+}
+
+.hljs-variable,
+.hljs-params {
+    @apply text-[#ABB2BF] !important; /* general text and parameters */
+}
+
+.hljs-title.function_ {
+    @apply text-[#61AFEF] !important; /* ProductDetail */
+}
+
+.hljs-title.class_,
+.hljs-type {
+    @apply text-[#E5C07B] !important; /* FC */
+}
+
+.hljs-operator.special {
+    @apply text-[#56B6C2] !important; /* = */
+}
+
+.hljs-variable.constant_ {
+    @apply text-[#E06C75] !important; /* FC */
+}
+
+.hljs-string {
+    @apply text-[#89CA78] !important; /* "./App.css", "react", "Product created: " */
+}
+
+.hljs-title.class_ {
+    @apply text-[#E5C07B] !important; /* CreateProduct, ProductForm, JSON, App */
+}
+
+.hljs-title.function_ {
+    @apply text-[#61AFEF] !important; /* handleCreate, alert, stringify */
+}
+
+.hljs-params {
+    @apply text-[#ABB2BF] !important; /* function parameters */
+}
+
+.hljs-literal {
+    @apply text-[#56B6C2] !important; /* null */
+}
+
+.hljs-number {
+    @apply text-[#D19A66] !important; /* 2 */
+}
+
+.hljs-function {
+    @apply text-[#61AFEF] !important; /* function indicators */
+}
+
+.hljs-tag {
+    @apply text-[#E6B450] !important; /* JSX tags like RouterProvider */
+}
+
+.hljs-name {
+    @apply text-[#E06C75] !important; /* JSX component names like App */
+}
+
+.language-tsx,
+.language-xml {
+    @apply text-[#ABB2BF] !important; /* base text color */
+}
+

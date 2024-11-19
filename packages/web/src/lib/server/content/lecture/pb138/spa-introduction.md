@@ -3,7 +3,7 @@ type: text
 title: Začátky s SPA
 description: V rámci tohoto kurzu SPA uslyšíte vcelku často, zkusíme si tedy v této lekci zadefinovat
   co to vlastně, jeho výhody jeho nevýhody.
-cover: "@/assets/course/pv281/course-cover.webp"
+cover: "/assets/course/pv281/course-cover.webp"
 badges:
   - 5 min
   - chill

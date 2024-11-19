@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onlydevs-lrs
+  labels:
+    app: onlydevs-lrs
+spec:
+  selector:
+    matchLabels:
+      app: onlydevs-lrs
+  template:
+    metadata:
+      labels:
+        app: onlydevs-lrs
+    spec:
+      containers:
+        - name: onlydevs-lrs
+          image: >-
+            registry.onlydevs.cz/onlydevs-lrs:production
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: "8080"
+            - name: HOST
+              value: "0.0.0.0"
+            - name: CLICKHOUSE_URL
+              value: "http://clickhouse-onlydevs.clickhouse.svc.cluster.local:8123"
+            - name: CLICKHOUSE_USER
+              value: "onlydevs-user"
+            - name: CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: common
+                  key: CLICKHOUSE_PASSWORD
+            - name: CLICKHOUSE_DB
+              value: "onlydevs_lrs"

@@ -3,7 +3,7 @@ type: text
 title: Úvod do formulářů
 description: Formuláře jsou klíčovým prvkem skoro každé aplikace a existuje mnoho možností, jak je v Reactu
   řešit. Pojďme se podívat co si vůbec pod formuláři představit.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 4 min
   - installation

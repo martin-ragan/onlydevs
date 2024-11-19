@@ -4,7 +4,7 @@ title: Motivace, aneb stojí mi ten čas vůbec za to
 description: Někdy je těžké najít motivaci, proč studovat konkrétní předmět. Zkusíme se tedy
   podívat na to, zda náhodou věnovat úsilí právě v tomto předmětu se Vám nevyplatí do života
   programátora.
-cover: "@/assets/images/introduction.webp"
+cover: "/assets/images/introduction.webp"
 badges:
   - 5 min
   - chill

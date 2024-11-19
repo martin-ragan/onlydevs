@@ -2,7 +2,7 @@
 type: text
 title: První routing s React router
 description: Knihovna je nainstalovaná, pojďme na nějaké první naše routování a vytvoříme si nějaké naše první cesty.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 7 min
   - text

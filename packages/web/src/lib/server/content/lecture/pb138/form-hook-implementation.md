@@ -2,7 +2,7 @@
 type: code
 title: Jednoduchá implementace formuláře
 description: Pokud si vše pamatujete dobře tak si zkuste implementovat jednoduchý formulář.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 10 min
   - coding

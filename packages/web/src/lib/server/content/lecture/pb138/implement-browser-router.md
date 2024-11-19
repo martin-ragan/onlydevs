@@ -3,7 +3,7 @@ type: code
 title: Implementace routingu
 description: Už po předchozích lekcích byste měli mít trochu ponětí o tom co je to routing a jak
   ho v Reactu SPA řešit tak si pojďme naimplementovat router
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 10 min
   - coding

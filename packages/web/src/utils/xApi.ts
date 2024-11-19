@@ -1,4 +1,4 @@
-import { xApiVerbURI, type XApiVerbCode, xApiVerbDisplay, type XApiVerb } from "@onlydevs/types";
+import { xApiVerbURI, type XApiVerbCode, xApiVerbDisplay, type XApiVerb } from "@onlydevs/common-types/src";
 
 export function getXApiVerb(verb: XApiVerbCode): XApiVerb {
   return {

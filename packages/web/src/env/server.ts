@@ -1,4 +1,5 @@
 import z, { type ZodFormattedError } from "zod";
+import { env } from "$env/dynamic/private";
 
 const serverSchema = z.object({
   NODE_ENV: z.string().default("development"),
@@ -11,14 +12,13 @@ const serverSchema = z.object({
 } satisfies Record<keyof NodeJS.ProcessEnv, any>);
 
 const serverEnvTemplate = {
-  NODE_ENV: process.env["NODE_ENV"],
-  HOST: process.env["HOST"],
-  XAPI_SERVICE_URL: process.env["XAPI_SERVICE_URL"],
-  WEB_DB: process.env["WEB_DB"],
-  KRATOS_URL: process.env["KRATOS_URL"],
-  PORT: process.env["PORT"],
+  NODE_ENV: env["NODE_ENV"],
+  HOST: env["HOST"],
+  XAPI_SERVICE_URL: env["XAPI_SERVICE_URL"],
+  WEB_DB: env["WEB_DB"],
+  KRATOS_URL: env["KRATOS_URL"],
+  PORT: env["PORT"],
 };
-
 const _serverEnv = serverSchema.safeParse(serverEnvTemplate);
 
 export const formatErrors = (errors: ZodFormattedError<Map<string, string>, string>) =>

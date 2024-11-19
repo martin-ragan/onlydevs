@@ -3,7 +3,7 @@ type: text
 title: Struktura URL adresy
 description: Url adresa nabízí mnoho, ale ve výsledku máme tendenci se spokojit jen s používáním cest.
   Pojďme se tedy podívat na strukturu a co vše můžeme využít pro identifikaci nějakého zdroje.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 4 min
   - text

@@ -2,7 +2,7 @@
 type: text
 title: Úvod do client-side směrování
 description: Řešení směrování u SPA aplikací a také jeho výhody a nevýhody.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 5 min
   - text

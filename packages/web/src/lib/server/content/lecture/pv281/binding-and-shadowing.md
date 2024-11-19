@@ -1,7 +1,7 @@
 ---
 type: video
 title: Binding and Shadowing
-cover: "@/assets/course/pb138/course-cover.webp"
+cover: "/assets/course/pb138/course-cover.webp"
 description: In this video, we will learn about binding and shadowing in Rust.
 badges:
   - 27 min

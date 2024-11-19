@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onlydevs-lrs
+  labels:
+    app: onlydevs-lrs
+spec:
+  selector:
+    matchLabels:
+      app: onlydevs-lrs
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: onlydevs-lrs
+    spec:
+      containers:
+        - name: onlydevs-lrs
+          image: >-
+            SOME_SHIT_IMAGE_THAT_DOESNT_EXIST
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          startupProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8080
+            initialDelaySeconds: 3
+            failureThreshold: 12
+            periodSeconds: 5
+            timeoutSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 2
+          resources:
+            requests:
+              memory: 128M
+              cpu: 200m
+            limits:
+              memory: 256M
+              cpu: 500m

@@ -1,26 +1,26 @@
 <script lang="ts">
     import './menu.css';
+    import { page } from '$app/stores';
 
     type Props = {
         items: {
             title: string;
+            slug: string;
             completed?: boolean;
         }[];
-        selectedItemIndex?: number;
-        onSelectItem: (itemIndex: number) => void;
     }
-
-    let { items, selectedItemIndex = 0, onSelectItem }: Props = $props();
-
-    function selectItem(itemIndex: number) {
-        onSelectItem(itemIndex);
-    }
+    let { items }: Props = $props();
+    let currentPath = $derived(`${$page.url.pathname.split('/')[2]}/${$page.url.pathname.split('/')[3]}`);
 </script>
 
 <ul class="flex flex-col text-white border border-border-gray">
-    {#each items as item, itemIndex}
-        <li class="flex flex-col p-4 border-b border-border-gray w-full last:border-none {selectedItemIndex === itemIndex ? 'bg-border-gray' : ''}" onclick={() => selectItem(itemIndex)}>
-            <div class="cursor-pointer flex items-center justify-between">
+    {#each items as item}
+        <li class="flex flex-col w-full last:border-none border-b border-border-gray {currentPath === item.slug ? 'bg-border-gray' : ''}">
+            <a 
+                data-sveltekit-preload-data="tap"
+                href={`/courses/${item.slug}`}
+                class="p-4 flex items-center justify-between"
+            >
                 <div class="flex items-center gap-4">
                     {#if item.completed}
                         <div class="text-success">
@@ -34,7 +34,7 @@
 
                     <span class="text-sm">{item.title}</span>
                 </div>
-            </div>
+            </a>
         </li>
     {/each}
-  </ul>
+</ul>

@@ -1,9 +1,12 @@
+import type { Token } from "marked";
+
 export type Course = {
     title: string;
     faculty: string;
     cover: string;
     isDraft: boolean;
     description: string;
+    slug: string;
     sections: {
         title: string;
         lectures: string[];
@@ -18,6 +21,7 @@ type BaseLecture = {
     badges: string[];
     content: string;
     completed: boolean;
+    slug: string;
 };
 
 export type TextLecture = BaseLecture & {
@@ -33,6 +37,7 @@ export type VideoLecture = BaseLecture & {
 
 export type CodeLecture = BaseLecture & {
     type: 'code';
+    content: Token [];
 };
 
 export type CheckpointLecture = BaseLecture & {

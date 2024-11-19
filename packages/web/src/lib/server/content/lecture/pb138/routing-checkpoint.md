@@ -5,7 +5,7 @@ description: |
   Zkuste si v tomto kvízu, zda jste správně pochopili vše co si máte z této kapitoly odnést. Zde máte
   připravené klíčové otázky, z lekcí, které jste si prošli a můžete si prověřit, zda máte osvojené
   právě důležité pojmy, které si máte odnést.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 8 min
   - checkpoint

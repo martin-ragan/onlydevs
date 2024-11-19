@@ -3,7 +3,7 @@ type: text
 title: Použití useFieldArray ve formuláři
 description: Pokud potřebujeme řešit dynamické přidávání a odebírání položek ve formuláři tak i pro toto
   má React hook form řešení.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 5 min
   - text

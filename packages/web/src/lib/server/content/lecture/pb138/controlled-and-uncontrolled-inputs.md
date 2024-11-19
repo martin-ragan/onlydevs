@@ -3,7 +3,7 @@ type: text
 title: Kontrolovaný a nekontrolovaný input
 description: Aby to nebylo tak jednoduché, tak můžeme v Reactu používat dva druhy inputů. Podívejme se tedy na to,
   jak každý input pracuje a který z nich bychom chtěli používat.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 4 min
   - text

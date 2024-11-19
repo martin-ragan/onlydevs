@@ -3,7 +3,7 @@ type: code
 title: Ukázka validace formuláře
 description: Názorný příklad, kde si vyzkoušíte implementaci nejen validace formuláře přes validační schéma,
   ale take vypisování chybových hlášek.
-cover: "@/assets/images/react-forms.webp"
+cover: "/assets/images/react-forms.webp"
 badges:
   - 8 min
   - coding

@@ -5,7 +5,8 @@
 	import { page } from '$app/stores';
 
 	// Get the course slug from the URL
-	const courseSlug = $derived($page.params.slug);
+	const courseSlug = $derived($page.params.courseSlug);
+    const lectureSlug = $derived($page.params.lectureSlug);
 </script>
 
 <section class="bg-secondary h-full min-h-screen w-full py-6">
@@ -13,7 +14,7 @@
         {#if courseSlug}
             <button 
                 class="flex items-center gap-2 hover:opacity-80" 
-                onclick={() => goto('/courses')}
+                onclick={() => goto(`/courses/${lectureSlug ? courseSlug : ''}`)}
             >
                 <Icon name="arrow-left" />
             </button>
@@ -24,6 +25,9 @@
                 <li class={courseSlug ? 'text-gray-400' : ''}>Courses</li>
                 {#if courseSlug}
                     <li>{courseSlug}</li>
+                {/if}
+                {#if lectureSlug}
+                    <li>{lectureSlug}</li>
                 {/if}
             </ul>
         </div>

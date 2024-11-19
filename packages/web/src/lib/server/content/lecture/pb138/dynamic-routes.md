@@ -3,7 +3,7 @@ type: text
 title: Dynamické cesty
 description: Poslední taková důležitá část routingu jsou dynamické adresy. Bez nich se nedá vystavět skoro žádná
   aplikace.
-cover: "@/assets/images/react-routing.webp"
+cover: "/assets/images/react-routing.webp"
 badges:
   - 7 min
   - text

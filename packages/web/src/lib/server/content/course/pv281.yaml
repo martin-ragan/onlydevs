@@ -12,6 +12,7 @@ sections:
     lectures:
       - pv281/simple-rust-code
       - pv281/data-types
+      - pv281/binding-and-shadowing
   - title: Enums and structures
     lectures:
       - pv281/enums

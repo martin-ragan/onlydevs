@@ -77,10 +77,12 @@
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <Button class={"h-10 w-30"}>
-                                    <Icon name="play" size="14px" />
-                                    Continue
-                                </Button>
+                                <a href={`/courses/${course.slug}`}>
+                                    <Button class={"h-10 w-30"}>
+                                        <Icon name="play" size="14px" />
+                                        Continue
+                                    </Button>
+                                </a>
                             </div>
                         </div>
                     </div>

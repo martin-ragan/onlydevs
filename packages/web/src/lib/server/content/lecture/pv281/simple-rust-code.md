@@ -1,7 +1,7 @@
 ---
 type: text
 title: Jednoduchý program v Rustu
-cover: "@/assets/course/pb138/course-cover.webp"
+cover: "/assets/course/pb138/course-cover.webp"
 description: V této lekci se naučíte jak napsat jednoduchý program v rustu a seznámíte se s základní syntaxí. Ukážeme di deklaraci proměnných, funkce a jak spustit Váš první kus kódu.
 badges:
   - 5 min

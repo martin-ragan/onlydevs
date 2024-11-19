@@ -3,5 +3,14 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "dev": "bun run --parallel */dev",
+    "build": "bun run --sequential */build",
+    "lint": "bun run --parallel */lint",
+    "test": "bun run --parallel */test"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
 }
