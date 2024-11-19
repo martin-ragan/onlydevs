@@ -26,7 +26,7 @@
                 {#each section.lectures as lecture, index}
                     {@const lectureData = lectures.find(l => l.slug === lecture)}
                   <div class="bg-gray-800/50 hover:bg-gray-800 rounded-lg p-4 transition-colors">
-                    <a href={`/courses/${lectureData?.slug}`} class="flex items-start gap-4 group">
+                    <a data-sveltekit-preload-data="tap" href={`/courses/${lectureData?.slug}`} class="flex items-start gap-4 group">
                       <div class="w-12 h-12 bg-gray-700/50 rounded-lg flex items-center justify-center flex-shrink-0">
                         <img src={lectureData?.cover || "/default-lesson-icon.svg"} alt="" class="w-6 h-6" />
                       </div>
