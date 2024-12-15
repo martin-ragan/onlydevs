@@ -1,0 +1,15 @@
+@startuml Student Lecture Status ERD
+
+!define table(x) class x << (T,#FFAAAA) >>
+
+' Define main tableß
+table(student_lecture_status) {
+  primary_key(id): UUID
+  created_at: timestamp
+  updated_at: timestamp
+  email: varchar(256)
+  course: varchar(256)
+  lecture: varchar(256)
+  status: ENUM[inProgress, completed]
+}
+@enduml

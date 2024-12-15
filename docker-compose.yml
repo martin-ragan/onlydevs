@@ -1,7 +1,16 @@
-version: '3.9'
-
 services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: onlydevs_web
+  
   clickhouse:
+    restart: always
     image: clickhouse/clickhouse-server:latest
     container_name: clickhouse
     ports:
@@ -19,8 +28,9 @@ services:
       start_period: 10s
 
   backend:
+    restart: always
     build:
-      context: .
+      context: packages/lrs
       dockerfile: Dockerfile
       args:
         - APP_PATH=.
@@ -33,3 +43,24 @@ services:
     depends_on:
       clickhouse:
         condition: service_healthy
+
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: packages/web/Dockerfile
+    ports:
+      - "3000:4321"
+    depends_on:
+      - db
+      - backend
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4321
+      KRATOS_URL: http://127.0.0.1:4433
+      XAPI_SERVICE_URL: http://backend:8080
+      PUBLIC_XAPI_SERVICE_URL: http://backend:8080
+      WEB_DB: postgres://postgres:password@127.0.0.1:5432/onlydevs_web
+      DATABASE_URL: postgresql://postgres:password@db:5432/onlydevs_web
+
+  

@@ -31,8 +31,6 @@ export const actions: Actions = {
             uco: data.get('uco')
         });
 
-        console.log(result);
-
         if (!result.success) {
             return fail(400, { error: result.error.flatten().fieldErrors });
         }
@@ -41,8 +39,6 @@ export const actions: Actions = {
     updatePassword: async ({ request, locals }) => {
         const data = await request.formData();
         const newPassword = data.get('newPassword');
-
-        console.log(newPassword);
     }
 };
 

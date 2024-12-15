@@ -12,7 +12,7 @@ export default {
 
 export const Primary = {
   args: {
-    image: 'https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp',
+    image: null,
     title: 'Úvod do webového vývoje',
     description: 'Za jeden semestr webovým vývojářem? Ano, v tomto předmětu se naučíte vše co v takovémto odvětví budete\n' +
         'potřebovat. Nejen, že si projdeme v rámci frontendu vše od HTML a CSS až po pokročilé věci v Reactu, ale také\n' +

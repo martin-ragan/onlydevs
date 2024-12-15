@@ -1,6 +1,5 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
-import { generateUserId } from '$lib/server/helpers/validators';
 import { hash } from '@node-rs/argon2';
 import { db } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
@@ -64,7 +63,6 @@ export const actions = {
         }
 
         const validatedData = result.data;
-        const userId = generateUserId();
         const passwordHash = await hash(validatedData.password, {
             // recommended minimum parameters
             memoryCost: 19456,
@@ -74,21 +72,19 @@ export const actions = {
         });
 
         try {
-            await db.insert(table.user).values({ 
-                id: userId, 
+            const [user] = await db.insert(table.user).values({
                 username: validatedData.username, 
                 passwordHash,
                 email: validatedData.email,
                 firstName: validatedData.firstName,
                 lastName: validatedData.lastName,
                 uco: validatedData.uco
-            });
+            }).returning();
 
-            const sessionToken = auth.generateSessionToken();
-            const session = await auth.createSession(sessionToken, userId);
-            auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
-        } catch (e) {
-            return fail(500, { message: 'An error has occurred' });
+            const session = await auth.createSession(user.id);
+            auth.setSessionTokenCookie(event, session.id, session.expiresAt);
+        } catch (e: unknown) {
+            return fail(500, { message: (e as {detail: string}).detail });
         }
         return redirect(302, '/dashboard');
     }

@@ -16,7 +16,6 @@ export async function load({ params, locals, parent }) {
       
     if (locals.user) {
         const actor: XApiActor = { mbox: locals.user.email };
-        console.log("sending statement");
         await sendXApiStatement(actor, "Opened", xApiObject);
     }
 

@@ -1,5 +1,5 @@
 .sidebar {
-    @apply bg-secondary-content flex flex-col items-center justify-between border-r border-primary;
+    @apply bg-secondary-content flex flex-col items-center justify-between border-r border-primary h-[calc(100vh-65px)];
 }
 
 .sidebar__list {

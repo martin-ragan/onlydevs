@@ -2,20 +2,31 @@
     import { enhance } from '$app/forms';
 	import { InputText } from '@onlydevs/ui';
 
-    let errors: Record<string, string> = {};
+    let errors: Record<string, string> = $state({});
     let submitting = false;
 </script>
 
 <div class="min-h-screen flex items-center justify-center">
     <div class="max-w-md w-full space-y-8 p-8 border border-primary rounded-lg shadow">
         <h2 class="text-center text-white text-3xl font-bold">Create an account</h2>
+
+        {#if errors['generalMessage']}
+            <p class="text-red-500 text-base mb-4">{errors['generalMessage']}</p>
+        {/if}
         
         <form method="POST" action="?/register" use:enhance={(...args) => {
             submitting = true;
             return async ({ result, update }) => {
                 submitting = false;
+                
                 if (result.type === 'failure') {
-                    errors = result.data?.errors as Record<string, string>;
+                    if(result.data?.errors) {
+                        errors = result.data?.errors as Record<string, string>;   
+                    } else {
+                        errors = {
+                            generalMessage: result.data.message
+                        }
+                    }
                 }
                 await update({reset: true});
             };

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { applyAction, deserialize } from "$app/forms";
-	import { invalidateAll } from "$app/navigation";
+	import { invalidate, invalidateAll } from "$app/navigation";
 
     let { completed }:{completed: boolean} = $props();
 
@@ -16,7 +16,7 @@
 
 		if (result.type === 'success') {
 			// rerun all `load` functions, following the successful update
-			await invalidateAll();
+			invalidate('courses:lectureMarkedComplete');
 		}
 
         applyAction(result);

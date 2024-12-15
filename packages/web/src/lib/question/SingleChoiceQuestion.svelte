@@ -7,8 +7,6 @@ import type { CheckpointSingleChoiceQuestion } from "../server/content/_lecture"
 
   let { index, question, result }: { index: number, question: CheckpointSingleChoiceQuestion, result: SingleChoiceResult | null } = $props();
 
-  console.log(result);
-
 
     const isAnswerCorrect = (code: string) => question.correct === code;
     const isAnswerChecked = (code: string) => result?.answer === code;

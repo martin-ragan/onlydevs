@@ -1,5 +1,6 @@
 <script lang="ts">
     import './card.css';
+    import CardImage from './course-cover.webp';
 
     interface Props {
         badges: string[];
@@ -15,7 +16,7 @@
 <div class={["card__container", klass].join(' ')}>
     <figure>
         <img
-                src={image}
+                src={image ?? CardImage}
                 alt="Shoes" />
     </figure>
     <div class="card__body">
