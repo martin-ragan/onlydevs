@@ -10,6 +10,7 @@ COPY packages/common-types/package.json ./packages/common-types/
 COPY packages/web/package.json ./packages/web/
 COPY packages/ui/ ./packages/ui/
 WORKDIR /app/packages/ui
+RUN bun install
 RUN bun run build
 
 WORKDIR /app
