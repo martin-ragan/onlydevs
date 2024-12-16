@@ -8,8 +8,7 @@ WORKDIR /app
 COPY package.json bun.lockb ./
 COPY packages/common-types/package.json ./packages/common-types/
 COPY packages/web/package.json ./packages/web/
-COPY packages/ui/package.json ./packages/ui/
-
+COPY packages/ui/ ./packages/ui/
 WORKDIR /app/packages/ui
 RUN bun run build
 
