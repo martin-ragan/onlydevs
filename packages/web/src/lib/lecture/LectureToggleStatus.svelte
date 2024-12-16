@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { applyAction, deserialize } from "$app/forms";
-	import { invalidate, invalidateAll } from "$app/navigation";
+	import { invalidate } from "$app/navigation";
 
     let { completed }:{completed: boolean} = $props();
 
@@ -15,7 +15,6 @@
         const result = deserialize(await response.text());
 
 		if (result.type === 'success') {
-			// rerun all `load` functions, following the successful update
 			invalidate('courses:lectureMarkedComplete');
 		}
 
@@ -27,7 +26,10 @@
         <form 
             method="POST" 
             action="?/completeLecture" 
-            on:submit|preventDefault={handleCompleteLecture}
+            onsubmit={(e) => {
+                e.preventDefault();
+                handleCompleteLecture(e);
+            }}
         >
             <button 
                 type="submit" 
@@ -40,7 +42,10 @@
         <form 
             method="POST" 
             action="?/uncompleteLecture" 
-            on:submit|preventDefault={handleCompleteLecture}
+            onsubmit={(e) => {
+                e.preventDefault();
+                handleCompleteLecture(e);
+            }}
         >
             <button 
                 type="submit" 

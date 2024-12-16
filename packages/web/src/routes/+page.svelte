@@ -31,7 +31,7 @@
         </div>
 
         <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <a
+            <div
                     class="block rounded-xl border border-neutral-800 p-8 shadow-xl transition hover:border-primary/10 hover:shadow-primary/10"
             >
                 <h2 class="mt-4 text-xl font-bold">Učení ve velikosti bitů</h2>
@@ -39,9 +39,9 @@
                 <p class="mt-1 text-sm">
                     Učte se vlastním tempem, naše moduly trvají jen několik minut. Nemusíte si vyhradit hodiny času.
                 </p>
-            </a>
+            </div>
 
-            <a
+            <div
                     class="block rounded-xl border border-neutral-800 p-8 shadow-xl transition hover:border-primary/10 hover:shadow-primary/10"
             >
                 <h2 class="mt-4 text-xl font-bold">Různorodost</h2>
@@ -49,9 +49,9 @@
                 <p class="mt-1 text-sm">
                     Nabízíme různé typy modulů, od videí po kvízy, abychom vám zajistili neustálé zapojení a učení.
                 </p>
-            </a>
+            </div>
 
-            <a
+            <div
                     class="block rounded-xl border border-neutral-800 p-8 shadow-xl transition hover:border-primary/10 hover:shadow-primary/10"
             >
                 <h2 class="mt-4 text-xl font-bold">Sledujte svoji cestu</h2>
@@ -60,7 +60,7 @@
                     Sledujte své pokroky a zjistěte, jak daleko jste se dostali. Vždy můžete pokračovat tam, kde jste skončili
                     jediným kliknutím.
                 </p>
-            </a>
+            </div>
         </div>
     </div>
 </section>

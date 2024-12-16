@@ -7,17 +7,17 @@ let coursesCache: Array<any> | null = null;
 
 async function loadCourses() {
 	if (coursesCache) return coursesCache;
-
+	
 	coursesCache = await Promise.all(
 		Object.entries(import.meta.glob('$lib/server/content/course/*.yaml', { 
-			as: 'raw',
+			query: '?raw',
+			import: 'default',
 			eager: true 
 		}))
 			.map(([path, content]) => {
 				const slug = path.split('/').pop()?.replace('.yaml', '');
-				return { ...parse(content), slug };
-			})
-	);
+				return { ...parse(content as string), slug };
+			}));
 
 	return coursesCache;
 }

@@ -10,6 +10,10 @@ let lectureFiles: Record<string, string> | null = null;
 
 /** @type {impCourse, ort('./$types').RequestHandler} */
 export async function load({ params, locals, parent, depends }) {
+    if(!locals.user) {
+        return;
+    }
+
     try {
         const {courses} = await parent() as {courses: Course[]};
         const course = courses.find(c => c.slug === params.courseSlug);
@@ -17,7 +21,8 @@ export async function load({ params, locals, parent, depends }) {
         // get lectures of the course
         if(!lectureFiles) {
             lectureFiles = await import.meta.glob(`$lib/server/content/lecture/*/*.md`, {
-                as: 'raw',
+                query: '?raw',
+                import: 'default',
                 eager: true
             });
         }

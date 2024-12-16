@@ -3,9 +3,9 @@
 	import { fly } from 'svelte/transition';
 	
 	
-	let errors: Record<string, string> = {};
-	let genericError: string | null = null;
-	let submitting = false;
+	let errors: Record<string, string> = $state({});
+	let genericError: string | null = $state(null);
+	let submitting = $state(false);
 </script>
 
 <div class="min-h-full flex items-center justify-center">

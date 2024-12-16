@@ -11,11 +11,11 @@
 </style>
 
 <div class="max-w-6xl mx-auto py-8 px-4">
-  <h1 class="text-white text-3xl font-medium mb-8">{course.title}</h1>
+  <h1 class="text-white text-3xl font-medium mb-8">{course?.title}</h1>
 
   <div class="grid md:grid-cols-[1fr,300px] gap-8">
     <main>
-      {#if course.sections?.length}
+      {#if course?.sections?.length}
         {#each course.sections as section, index}
           <div class="mb-12" id="section-{index + 1}">
             <h2 class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-4">Topic {index + 1}</h2>
@@ -28,7 +28,9 @@
                   <div class="bg-gray-800/50 hover:bg-gray-800 rounded-lg p-4 transition-colors">
                     <a data-sveltekit-preload-data="tap" href={`/courses/${lectureData?.slug}`} class="flex items-start gap-4 group">
                       <div class="w-12 h-12 bg-gray-700/50 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <img src={lectureData?.cover || "/default-lesson-icon.svg"} alt="" class="w-6 h-6" />
+                        {#if lectureData?.cover}
+                          <img src={lectureData.cover} alt="" class="w-6 h-6" />
+                        {/if}
                       </div>
                       <div class="flex-1">
                         <h4 class="text-white text-lg font-medium mb-1">{lectureData?.title}</h4>

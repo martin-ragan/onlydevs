@@ -2,8 +2,8 @@
     import { enhance } from '$app/forms';
 	import { InputText } from '@onlydevs/ui';
 
-    let errors: Record<string, string> = $state({});
-    let submitting = false;
+    let errors: Record<string, string | undefined> = $state({});
+    let submitting = $state(false);
 </script>
 
 <div class="min-h-screen flex items-center justify-center">
@@ -24,7 +24,7 @@
                         errors = result.data?.errors as Record<string, string>;   
                     } else {
                         errors = {
-                            generalMessage: result.data.message
+                            generalMessage: result?.data?.message as string
                         }
                     }
                 }
