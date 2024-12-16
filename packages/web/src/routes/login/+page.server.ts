@@ -45,9 +45,8 @@ export const actions: Actions = {
             });
         }
 
-		const results = await db.select().from(table.user).where(eq(table.user.username, username));
+		const [existingUser] = await db.select().from(table.user).where(eq(table.user.username, username));
 
-		const existingUser = results.at(0);
 		if (!existingUser) {
 			return fail(400, { message: 'Incorrect username or password' });
 		}
@@ -58,13 +57,13 @@ export const actions: Actions = {
 			outputLen: 32,
 			parallelism: 1
 		});
+
 		if (!validPassword) {
 			return fail(400, { message: 'Incorrect username or password' });
 		}
 
-		const sessionToken = auth.generateSessionToken();
-		const session = await auth.createSession(sessionToken, existingUser.id);
-		auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
+		const session = await auth.createSession(existingUser.id);
+		auth.setSessionTokenCookie(event, session.id, session.expiresAt);
 
 		if (redirectTo) {
 			return redirect(302, redirectTo);

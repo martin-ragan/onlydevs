@@ -1,6 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 import { parse } from 'yaml';
+import type { Course } from '../../models/types';
 
 // Cache variable to store parsed courses
 let coursesCache: Array<any> | null = null;
@@ -27,6 +28,6 @@ export const load: LayoutServerLoad = async (event: { locals: { user: any }; url
 		throw redirect(302, `/login?redirectTo=${event.url.pathname}`);
 	}
 
-	const courses = await loadCourses();
+	const courses = await loadCourses() as Course [];
 	return { user: event.locals.user, courses };
 };
