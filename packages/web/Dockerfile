@@ -10,6 +10,10 @@ COPY packages/common-types/package.json ./packages/common-types/
 COPY packages/web/package.json ./packages/web/
 COPY packages/ui/package.json ./packages/ui/
 
+WORKDIR /app/packages/ui
+RUN bun run build
+
+WORKDIR /app
 # Install dependencies
 RUN bun install
 
